@@ -83,7 +83,7 @@ public class WordleGame {
             for (int i = 0; i < letterNumber; i++) {
                 if (stepPattern.charAt(i) == '+') {
                     if (wordPattern.charAt(i) != stepWord.charAt(i)) {
-                        wordPattern.replace(i,i + 1,stepWord.substring(i,i+1));
+                        wordPattern.replace(i,i + 1,stepWord.substring(i, i + 1));
                     }
                 } else if (stepPattern.charAt(i) == '^') {
                     lettersInWord.add(stepWord.charAt(i));
