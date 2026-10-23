@@ -9,13 +9,13 @@ public class WordleDictionary {
     private int letterNumber = 5;
     private PrintWriter logFileWriter;
 
-    WordleDictionary (int letterNumber, PrintWriter logFileWriter) {
+    WordleDictionary(int letterNumber, PrintWriter logFileWriter) {
         words = new ArrayList<>();
         this.letterNumber = letterNumber;
         this.logFileWriter = logFileWriter;
     }
 
-    public void add (String newWord) {
+    public void add(String newWord) {
         words.add(newWord);
     }
 
@@ -34,7 +34,7 @@ public class WordleDictionary {
             if (word.matches(wordPattern) && !notSuitableWords.contains(word)) {
                 boolean sutable = true;
                 HashSet<Character> lettersInWordCopy = new HashSet<Character>(lettersInWord);
-                for (int i = 0; i<letterNumber && sutable; i++) {
+                for (int i = 0; i < letterNumber && sutable; i++) {
                     if (wordPattern.charAt(i) == '.') {
                         if (lettersNotInWord.contains(word.charAt(i)) || lettersWrongPositions.get(i).contains(word.charAt(i))) {
                             sutable = false;
