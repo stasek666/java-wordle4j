@@ -33,13 +33,13 @@ public class WordleGame {
 
     public String testWord(String testingWord) {
         String result = "";
-        for (int i=0; i < dictionary.getLetterNumber(); i++) {
+        for (int i = 0; i < dictionary.getLetterNumber(); i++) {
             result += testChar(answer.charAt(i), testingWord.charAt(i));
         }
         return result;
     }
 
-    public String nextStep (String word) throws IOException, StepsAreOver, WordNotFoundInDictionary {
+    public String nextStep(String word) throws IOException, StepsAreOver, WordNotFoundInDictionary {
         if (steps == 0) {
             throw new StepsAreOver("Ходы уже закончились!", answer);
         }
@@ -69,7 +69,7 @@ public class WordleGame {
         this.answer = answer;
     }
 
-    public String getNextHint () throws IOException {
+    public String getNextHint() throws IOException {
         int letterNumber = dictionary.getLetterNumber();
         StringBuilder wordPattern = new StringBuilder(".".repeat(letterNumber));
         HashSet<Character> lettersInWord = new HashSet<>();
@@ -83,7 +83,7 @@ public class WordleGame {
             for (int i = 0; i < letterNumber; i++) {
                 if (stepPattern.charAt(i) == '+') {
                     if (wordPattern.charAt(i) != stepWord.charAt(i)) {
-                        wordPattern.replace(i,i+1,stepWord.substring(i,i+1));
+                        wordPattern.replace(i,i + 1,stepWord.substring(i,i+1));
                     }
                 } else if (stepPattern.charAt(i) == '^') {
                     lettersInWord.add(stepWord.charAt(i));
